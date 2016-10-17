@@ -1,0 +1,9 @@
+middleman:
+  #container_name: middleman
+  #image: middleman
+  build: .
+  volumes:
+    - ./project:/var/www/middleman
+  ports:
+    - "4567:4567"
+  # command: "bundle install && bundle exec middleman"
