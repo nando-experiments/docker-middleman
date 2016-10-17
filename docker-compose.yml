@@ -3,7 +3,6 @@ middleman:
   #image: middleman
   build: .
   volumes:
-    - ./project:/var/www/middleman
+    - ./project:/app
   ports:
     - "4567:4567"
-  # command: "bundle install && bundle exec middleman"

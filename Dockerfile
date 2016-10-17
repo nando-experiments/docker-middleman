@@ -17,12 +17,16 @@ RUN apt-get update && \
     nodejs && \
     apt-get autoclean
 
-VOLUME /var/www/middleman
-WORKDIR /var/www/middleman
+RUN usr/sbin/useradd --create-home --home-dir /app --shell /bin/bash docker
 
-ONBUILD COPY Gemfile /var/www/middleman/
-ONBUILD COPY Gemfile.lock /var/www/middleman/
-ONBUILD RUN bundle install
-ONBUILD COPY . /var/www/middleman
-ONBUILD RUN bundle exec puma -p 4567
+VOLUME /app
+WORKDIR /app
 
+RUN chown -R docker:docker /app
+USER docker
+
+COPY project/Gemfile* /app/
+RUN bundle install
+
+ENTRYPOINT ["bundle", "exec", "middleman"]
+CMD ["server"]
