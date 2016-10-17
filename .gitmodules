@@ -1,3 +1,4 @@
 [submodule "project"]
 	path = project
 	url = git@github.com:nandomoreirame/nandomoreirame.github.io.git
+  branch = source
