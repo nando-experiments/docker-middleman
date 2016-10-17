@@ -1,6 +1,4 @@
 middleman:
-  #container_name: middleman
-  #image: middleman
   build: .
   volumes:
     - ./project:/app
