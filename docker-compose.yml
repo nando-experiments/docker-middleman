@@ -1,5 +1,7 @@
 middleman:
-  build: .
+  build: ./
+  container_name: middleman
+  dockerfile: Dockerfile
   volumes:
     - ./project:/app
   ports:
