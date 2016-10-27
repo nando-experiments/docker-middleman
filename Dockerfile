@@ -5,16 +5,13 @@ EXPOSE 4567
 
 RUN bundle config --global frozen 1
 
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
 RUN apt-get update && \
     apt-get install -y \
-    vim \
-    curl \
-    curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
-    apt-get update && \
-    apt-get install -y \
-    build-essential \
-    git \
-    nodejs && \
+      build-essential \
+      git \
+      vim \
+      nodejs && \
     apt-get autoclean
 
 RUN usr/sbin/useradd --create-home --home-dir /app --shell /bin/bash docker
